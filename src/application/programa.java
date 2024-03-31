@@ -46,12 +46,13 @@ public class programa {
 
         System.out.println();
         System.out.print("Entre com mês e ano do contrato a ser calculado (MM/AAAA): ");
-        String mes_e_ano = scan.next();
-        int mes = Integer.parseInt(mes_e_ano.substring(0, 2));
-        int ano = Integer.parseInt(mes_e_ano.substring(3));
+        String[] partes = scan.next().split("/");
+        int mes = Integer.parseInt(partes[0]);
+        int ano = Integer.parseInt(partes[1]);
         System.out.println("Nome: " + nomeFuncionario);
         System.out.println("Departamento: " + funcionario.getDepartamento().getNome());
-        System.out.println("Salario á receber por " + mes_e_ano + ": " + String.format("%.2f", funcionario.receber(ano, mes)));
+        System.out.println("Salario á receber por " + partes[0] + "/" + partes[1] + ": " + String.format("%.2f", funcionario.receber(ano, mes)));
+
 
         scan.close();
     }
